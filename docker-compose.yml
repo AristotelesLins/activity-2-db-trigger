@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16
+    container_name: pg_trigger_demo
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: demo_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./scheme.sql:/docker-entrypoint-initdb.d/scheme.sql
